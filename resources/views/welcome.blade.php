@@ -171,15 +171,15 @@
 
                 <div class="container">
                     <div id="carousel">
-                        <figure><img src="https://mycamerajournal.files.wordpress.com/2014/02/photographer-5.jpg" alt="" width="100%" height="50%" ></figure>
-                        <figure><img src="https://images3.alphacoders.com/853/thumb-1920-85305.jpg" alt="" width="100%" height="50%"></figure>
-                        <figure><img src="http://static.boredpanda.com/blog/wp-content/uploads/2015/05/owl-photography-sasi-smit-fb.jpg" alt="" width="100%" height="50%"></figure>
-                        <figure><img src="http://loyalla.com/blog/wp-content/uploads/2015/04/photography1thewowstyle.jpg" alt="" width="100%" height="50%"></figure>
-                        <figure><img src="http://www.martinpelzer.com/wp-content/uploads/2014/05/Photography-Business.jpg" alt="" width="100%" height="50%"></figure>
-                        <figure><img src="http://www.sekonic.com/portals/0/articles/zuckerman_wildlife_photography_image04.jpg" alt="" width="100%" height="50%"></figure>
-                        <figure><img src="http://hdwallpapershdpics.com/wp-content/uploads/2016/06/Amazing-Photography-Wallpaper.jpg" alt="" width="100%" height="50%"></figure>
-                        <figure><img src="http://www.newhdwallpapers.in/wp-content/uploads/2014/01/Shore-Chains-City-Evening-HD-Photography.jpg" alt="" width="100%" height="50%"></figure>
-                        <figure><img src="http://hdwidescreenwallpapers.com/wp-content/uploads/2013/11/amazing-photography-hd-wallpapers.jpg" alt="" width="100%" height="50%"></figure>
+                        <figure><img src="https://mycamerajournal.files.wordpress.com/2014/02/photographer-5.jpg" alt="" width="100%" height="125px" ></figure>
+                        <figure><img src="https://images3.alphacoders.com/853/thumb-1920-85305.jpg" alt="" width="100%" height="125px"></figure>
+                        <figure><img src="http://static.boredpanda.com/blog/wp-content/uploads/2015/05/owl-photography-sasi-smit-fb.jpg" alt="" width="100%" height="125px"></figure>
+                        <figure><img src="http://loyalla.com/blog/wp-content/uploads/2015/04/photography1thewowstyle.jpg" alt="" width="100%" height="125px"></figure>
+                        <figure><img src="http://www.martinpelzer.com/wp-content/uploads/2014/05/Photography-Business.jpg" alt="" width="100%" height="125px"></figure>
+                        <figure><img src="http://www.sekonic.com/portals/0/articles/zuckerman_wildlife_photography_image04.jpg" alt="" width="100%" height="125px"></figure>
+                        <figure><img src="http://hdwallpapershdpics.com/wp-content/uploads/2016/06/Amazing-Photography-Wallpaper.jpg" alt="" width="100%" height="125px"></figure>
+                        <figure><img src="http://www.newhdwallpapers.in/wp-content/uploads/2014/01/Shore-Chains-City-Evening-HD-Photography.jpg" alt="" width="100%" height="125px"></figure>
+                        <figure><img src="http://hdwidescreenwallpapers.com/wp-content/uploads/2013/11/amazing-photography-hd-wallpapers.jpg" alt="" width="100%" height="125px"></figure>
                     </div>
                 </div>
 

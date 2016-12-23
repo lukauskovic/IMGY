@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $images = image::orderBy('created_at','desc')->paginate(10);
+        $images = image::orderBy('created_at','desc')->paginate(8);
         return view('home')->withImages($images);
     }
 

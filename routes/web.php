@@ -21,7 +21,12 @@ Route::get('/home', 'HomeController@index');
 Route::get('upload', function(){
     return View::make('upload');
 });
-Route::any('form-submit', 'UploadController@upload');
+
+Route::post('apply/upload', 'UploadController@upload');
+
+Route::get('profile/{id}', 'UsersController@profile');
+
+Route::get('image/{id}', 'UsersController@image' );
 
 
 
