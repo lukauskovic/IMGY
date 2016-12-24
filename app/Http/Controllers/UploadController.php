@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
 use App\image;
-
+use App\User;
 
 class UploadController extends Controller
 {
@@ -17,7 +17,7 @@ class UploadController extends Controller
         // getting all of the post data
         $file = array('image' => Input::file('image'));
         // setting up rules
-        $rules = array('image' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
+        $rules = array('image' => 'required|max:1000000',); //mimes:jpeg,bmp,png and for max size max:10000
         // doing the validation, passing post data, rules and the messages
         $validator = Validator::make($file, $rules);
         if ($validator->fails()) {
@@ -26,7 +26,7 @@ class UploadController extends Controller
         }
         else {
             // checking file is valid.
-            if (Input::file('image')->isValid()) {
+            if (Input::file('image')->isValid()) {   
                 $destinationPath = 'uploads'; // upload path
                 $extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
                 $fileName = rand(11111,99999).'.'.$extension; // renameing image
@@ -45,12 +45,18 @@ class UploadController extends Controller
                 Session::flash('error', 'uploaded file is not valid');
                 return Redirect::to('upload');
             }
-        }
+        }    
     }
 
-    public function show(){
+    public function delete($id){
 
-
+       $img = image::find($id);
+       if($img->user_id == Auth::user()->id)
+       {
+        unlink($img->url);
+         $img->delete();
+       }
+       return Redirect::back();
     }
 
 }

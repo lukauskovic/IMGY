@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-md-offset-5">
+            <div class="col-md-5">
 
                 <div class="about-section">
                     <div class="text-content">
@@ -15,7 +15,7 @@
                             @endif
                             <div class="secure">Upload Your Image</div>
                             {!! Form::open(array('url'=>'apply/upload','method'=>'POST', 'files'=>true)) !!}
-                            <div class="control-group">
+                            <div class="control-group" onchange="loadFile(event)">
                                 <div class="controls">
                                     {!! Form::file('image') !!}
                                     <p class="errors">{!!$errors->first('image')!!}</p>
@@ -28,11 +28,23 @@
                             {!! Form::submit('Submit', array('class'=>'send-btn')) !!}
                             {!! Form::close() !!}
                         </div>
-                    </div>
+                    </div>               
                 </div>
-
-
             </div>
+
+            <div >
+                      
+                        <script>
+                          var loadFile = function(event) {
+                            var output = document.getElementById('output');
+                            output.src = URL.createObjectURL(event.target.files[0]);
+                          };
+                        </script> 
+                        
+                        <img width="50%" height="50%" id="output"/>
+                        
+            </div>   
+
         </div>
     </div>
 @endsection

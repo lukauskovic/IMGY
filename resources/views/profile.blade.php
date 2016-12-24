@@ -22,6 +22,9 @@
                         <a  href="/IMGY/public/image/{{$image->id}}">
                             <div class="img-thumbnail">
                                 <img alt="" src="http://localhost/IMGY/public/{{$image->url}}" width="250px" height="200px" />
+                                @if(Auth::user()->id == $user->id)
+                                    <a href="/IMGY/public/delete/{{$image->id}}"><button style="position: absolute; top: 5px; right: 23px;" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a> 
+                                @endif
                             </div>
                         </a>
                     </div>
@@ -32,3 +35,4 @@
         </div>
     </div>
 @endsection
+

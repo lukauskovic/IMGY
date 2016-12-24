@@ -28,6 +28,8 @@ Route::get('profile/{id}', 'UsersController@profile');
 
 Route::get('image/{id}', 'UsersController@image' );
 
+Route::get('delete/{id}' , 'UploadController@delete');
+
 
 
 
