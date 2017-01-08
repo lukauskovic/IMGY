@@ -65,7 +65,7 @@
                         <ul class="nav navbar-nav">                    
                           <li><a href="{{url('/home')}}">Home</a></li>
                           <li><a href="{{url('/upload')}}">Upload</a></li>
-                          <li><a href="/IMGY/public/profile/{{Auth::user()->id}}">{{Auth::user()->name}}</a></li>
+                          <li><a href="{{url('/profile', Auth::user()->id)}}">{{Auth::user()->name}}</a></li>
                         </ul>
                     @endif
                 </div>

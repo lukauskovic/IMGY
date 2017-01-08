@@ -19,11 +19,11 @@
             @foreach($images as $image)
                 @if($user->id == $image->user_id)
                     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                        <a  href="/IMGY/public/image/{{$image->id}}">
+                        <a  href="{{url('/image' , $image->id)}}">
                             <div class="img-thumbnail">
                                 <img alt="" src="http://localhost/IMGY/public/{{$image->url}}" width="250px" height="200px" />
                                 @if(Auth::user()->id == $user->id)
-                                    <a onclick="return confirmAction()" href="/IMGY/public/delete/{{$image->id}}"><button style="position: absolute; top: 5px; right: 23px;" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a> 
+                                    <a onclick="return confirmAction()" href="{{url('/delete', $image->id)}}"><button style="position: absolute; top: 5px; right: 23px;" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a> 
                                 @endif
                             </div>
                         </a>

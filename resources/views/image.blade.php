@@ -13,10 +13,10 @@
 
 		 
 
-		 <h2>Uploaded by <a href="/IMGY/public/profile/{{$user->id}}">{{$user->name}}</a></h2>
+		 <h2>Uploaded by <a href="{{url('/profile' , $user->id)}}">{{$user->name}}</a></h2>
 		 <h2>Upload date : {{$img->created_at->format('d M Y')}}</h2>
 		 @if(Auth::user()->id == $user->id)
-		 	<a onclick="return confirmAction()"	href="/IMGY/public/delete/{{$img->id}}">Delete This Image</a>		 
+		 	<a onclick="return confirmAction()"	href="{{url('/delete', $img->id)}}">Delete This Image</a>		 
 		 @endif
 
 		 <script>

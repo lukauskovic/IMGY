@@ -16,9 +16,9 @@
 
             @foreach($images as $image)
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a  href="/IMGY/public/image/{{$image->id}}">
+                <a  href="{{url('/image' , $image->id)}}">
                     <div class="img-thumbnail">
-                        <img alt="" src="{{$image->url}}" width="250px" height="200px" />
+                        <img alt="" src="http://localhost/IMGY/public/{{$image->url}}" width="250px" height="200px" />
                     </div>
                 </a>
             </div>
