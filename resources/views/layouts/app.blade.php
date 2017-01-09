@@ -67,6 +67,19 @@
                           <li><a href="{{url('/upload')}}">Upload</a></li>
                           <li><a href="{{url('/profile', Auth::user()->id)}}">{{Auth::user()->name}}</a></li>
                         </ul>
+                        <!-- Search -->
+                        <div class="col-sm-6 col-md-6">
+                            {!! Form::open(['method'=>'GET','url'=>'search','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" name="search" placeholder="Search...">
+                                <span class="input-group-btn">
+                                      <div class="input-group-btn">
+                                         <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                      </div>
+                                </span>
+                            </div>
+                            {!! Form::close() !!}
+                         </div>
                     @endif
                 </div>
 

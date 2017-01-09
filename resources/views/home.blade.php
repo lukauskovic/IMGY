@@ -28,6 +28,10 @@
 
         </div>
 
+        <div class="text-center">
+            {!! $images->links(); !!}
+        </div>        
+
 
 </div>
 @endsection

@@ -30,6 +30,8 @@ Route::get('image/{id}', 'UsersController@image' );
 
 Route::get('delete/{id}' , 'UploadController@delete');
 
+Route::get('search', ['as' => 'search', 'uses' => 'HomeController@search']);
+
 
 
 
