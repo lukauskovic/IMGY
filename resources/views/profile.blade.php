@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-12 col-md-offset-5">
+            <div class="col-md-6 col-md-offset-5">
             @if($user->name == Auth::user()->name)
                 <h1>Your Images</h1>
             @else
