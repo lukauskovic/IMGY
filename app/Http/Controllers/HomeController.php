@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\image;
+use App\Image;
 use App\User;
 class HomeController extends Controller
 {
@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $images = image::orderBy('created_at','desc')->paginate(2);
+        $images = Image::orderBy('created_at','desc')->paginate(2);
 
         if($request->ajax()) {
             return [

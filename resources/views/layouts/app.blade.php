@@ -10,12 +10,8 @@
 
     <title>IMGY</title>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="<?php echo URL::to('/'); ?>/css/app.css" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -62,7 +58,7 @@
                         IMGY
                     </a>
                     @if(Auth::check())
-                        <ul class="nav navbar-nav">                    
+                        <ul class="nav navbar-nav">
                           <li><a href="{{url('/home')}}">Home</a></li>
                           <li><a href="{{url('/upload')}}">Upload</a></li>
                           <li><a href="{{url('/profile', Auth::user()->id)}}">{{Auth::user()->name}}</a></li>
@@ -95,9 +91,9 @@
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
-                        @else                                       
+                        @else
 
-                              
+
                                 <li>
                                     <a href="{{ url('/logout') }}"
                                         onclick="event.preventDefault();
@@ -109,17 +105,16 @@
                                         {{ csrf_field() }}
                                     </form>
                                 </li>
-                                
+
                         @endif
                     </ul>
                 </div>
             </div>
         </nav>
 
+
         @yield('content')
     </div>
 
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
 </body>
 </html>

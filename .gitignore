@@ -4,3 +4,4 @@ env.example
 .idea/*
 package-lock.json
 vendor/*
+public/uploads/
