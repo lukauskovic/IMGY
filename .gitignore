@@ -1,0 +1,6 @@
+composer.lock
+env.example
+.env
+.idea/*
+package-lock.json
+vendor/*
