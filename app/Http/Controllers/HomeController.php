@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\image;
 use App\User;
@@ -22,9 +21,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $images = image::orderBy('created_at','desc')->paginate(8);
+        $images = image::orderBy('created_at','desc')->paginate(2);
+
+        if($request->ajax()) {
+            return [
+                'images' => view('infinite_scroll.infinite_scroll')->with(compact('images'))->render(),
+                'next_page' => $images->nextPageUrl()
+            ];
+        }
+
         return view('home')->withImages($images);
     }
 

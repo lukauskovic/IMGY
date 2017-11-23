@@ -4,34 +4,32 @@
 <div  class="container-fluid">
     <div class="row">
 
-        <div class="col-md-6 col-md-offset-5">
+        <div class="text-center">
 
             <h1>Gallery</h1>
 
-        </div> 
-
-    </div>
- 
-    <div  class="row">
-
-            @foreach($images as $image)
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a  href="{{url('/image' , $image->id)}}">
-                    <div class="img-thumbnail">
-                        <img alt="" src="http://localhost/IMGY/public/{{$image->url}}" width="250px" height="200px" />
-                    </div>
-                </a>
-            </div>
-
-
-            @endforeach
-
         </div>
 
-        <div class="text-center">
-            {!! $images->links(); !!}
-        </div>      
+    </div>
+
+    <div class="container">
+
+        <section class="images endless-pagination" data-next-page="{{ $images->nextPageUrl() }}">
+            @foreach($images as $image)
+                <div  class="article" style="padding: 30px;">
+                        <div class="text-center">
+                            <a  href="{{url('/image' , $image->id)}}">
+                                <img class="img-thumbnail" alt="" src="http://localhost/IMGY/public/{{$image->url}}" width="40%" height="60%" />
+                            </a>
+                        </div>
+                </div>
+            @endforeach
+        </section>
+
+    <div class="text-center">
+        {{--{!! $images -> render() !!}--}}
+    </div>
+        <script src="<?php echo URL::to('/'); ?>/js/infinite_scroll.js"></script>
 
 
-</div> 
 @endsection
