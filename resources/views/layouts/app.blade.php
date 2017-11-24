@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="<?php echo URL::to('/'); ?>/css/app.css" rel="stylesheet">
+    <link href="<?php echo URL::to('/'); ?>/css/style.css" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -61,7 +62,7 @@
                         <ul class="nav navbar-nav">
                           <li><a href="{{url('/home')}}">Home</a></li>
                           <li><a href="{{url('/upload')}}">Upload</a></li>
-                          <li><a href="{{url('/profile', Auth::user()->id)}}">{{Auth::user()->name}}</a></li>
+                          <li><a href="{{url('/profile', Auth::user()->id)}}">{{Auth::user()->firstname}}</a></li>
                         </ul>
                         <!-- Search -->
                         <div class="col-sm-6 col-md-6">
@@ -111,8 +112,6 @@
                 </div>
             </div>
         </nav>
-
-
         @yield('content')
     </div>
 
