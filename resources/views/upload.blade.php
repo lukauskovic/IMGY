@@ -2,49 +2,58 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-5">
+        <div class="row justify-content-md-center">
 
-                <div class="about-section">
-                    <div class="text-content">
-                        <div class="span7 offset1">
-                            @if(Session::has('success'))
-                                <div class="alert-box success">
-                                    <h2>{!! Session::get('success') !!}</h2>
-                                </div>
-                            @endif
-                            <div class="secure">Upload Your Image</div>
-                            {!! Form::open(array('url'=>'apply/upload','method'=>'POST', 'files'=>true)) !!}
-                            <div class="control-group" onchange="loadFile(event)">
-                                <div class="controls">
-                                    {!! Form::file('image') !!}
-                                    <p class="errors">{!!$errors->first('image')!!}</p>
-                                    @if(Session::has('error'))
-                                        <p class="errors">{!! Session::get('error') !!}</p>
-                                    @endif
-                                </div>
-                            </div>
-                            <div id="success"> </div>
-                            {!! Form::submit('Submit', array('class'=>'send-btn')) !!}
-                            {!! Form::close() !!}
-                        </div>
-                    </div>               
+            <div class="col-md-5">
+                {!! Form::open(array('url'=>'apply/upload', 'class'=>'form-horizontal','method'=>'POST', 'files'=>true)) !!}
+
+                <div class="form-group">
+                    {{ Form::label('Description', null,array('class' => 'control-label')) }}
+                    {!! Form::textarea('description', null , array('class'=>'form-control', 'rows'=>5, 'cols'=>45, 'style'=>"resize: none;", 'placeholder'=>"Tell us something about the picture", 'resize'=>"none")) !!}
                 </div>
+
+                <div class="form-group" id="tag_from_group">
+                    {{ Form::label('Tag', null, array('class' => 'control-label')) }} <br>
+                    {!! Form::text('tag[0]', null, array('class'=>'form-control', 'list'=>"tagsList", 'style'=>"width: 90%; float: left;", 'id'=>"tag", 'placeholder'=>"Set Tag")) !!}
+                    <button onclick="addTagInput()" type="button" style= "display: inline; margin-left: 10px" class="btn btn-success">+</button>
+                </div>
+
+                <div class="form-group" onchange="loadFile(event)">
+                    <span class="btn btn-default btn-file">
+                        Browse
+                    {!! Form::file('image') !!}
+                    </span>
+                    <p> {!!$errors->first('image')!!}</p>
+                    @if(Session::has('error'))
+                        <p class="errors">{!! Session::get('error') !!}</p>
+                    @endif
+                </div>
+
+                <div class="form-group">
+                {!! Form::submit('Submit', array('class'=>'btn btn-primary')) !!}
+                </div>
+                {!! Form::close() !!}
+
             </div>
 
-            <div >
-                      
-                        <script>
-                          var loadFile = function(event) {
-                            var output = document.getElementById('output');
-                            output.src = URL.createObjectURL(event.target.files[0]);
-                          };
-                        </script> 
-                        
-                        <img width="50%" height="50%" id="output"/>
-                        
-            </div>   
+            <div class="col-md-7">
+
+                <div class="img-thumbnail" id="div" style="height: 500px;">
+                    <img width="100%" height="100%" id="output"/>
+                </div>
+
+            </div>
 
         </div>
+
     </div>
+
+    <datalist id="tagsList">
+        <?php
+        foreach($tags as $tag){
+            echo "<option value=".$tag->name." />";
+        }
+        ?>
+    </datalist>
+    <script src="<?php echo URL::to('/'); ?>/js/upload_form.js"></script>
 @endsection

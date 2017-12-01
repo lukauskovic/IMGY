@@ -18,9 +18,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('upload', function(){
-    return View::make('upload');
-});
+Route::get('upload', 'UploadController@index');
 
 Route::post('apply/upload', 'UploadController@upload');
 
