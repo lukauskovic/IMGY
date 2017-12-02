@@ -55,5 +55,5 @@
         }
         ?>
     </datalist>
-    <script src="<?php echo URL::to('/'); ?>/js/upload_form.js"></script>
+    <script src="<?php echo URL::to('/'); ?>/js/upload.js"></script>
 @endsection
