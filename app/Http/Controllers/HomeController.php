@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Image;
 use App\User;
+use App\Tag;
 class HomeController extends Controller
 {
     /**
@@ -24,7 +25,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $images = Image::orderBy('created_at','desc')->paginate(2);
+        $images = Image::orderBy('created_at','desc')->paginate(4);
 
         if($request->ajax()) {
             return [
@@ -34,6 +35,23 @@ class HomeController extends Controller
         }
 
         return view('home')->withImages($images);
+    }
+
+    public function modal_content($modal_image_id){
+        //$modal_image_src = htmlspecialchars($_GET["src"]);
+        $img = Image::where('id',$modal_image_id)->first();
+        $user = User::where('id',$img->user_id)->first();
+        $tags = Image::find($img->id)->tags()->get();
+        $tag_names = array();
+        foreach ($tags as $tag){
+            array_push($tag_names, $tag->name);
+        }
+        $user_fullname = $user->firstname .' '. $user->lastname;
+        return [
+            'user_fullname' => $user_fullname,
+            'image_description' => $img->description,
+            'image_tags' => $tag_names
+        ];
     }
 
     public function search()

@@ -1,9 +1,7 @@
-    @foreach($images as $image)
+@foreach($images as $image)
     <div  class="article" style="padding: 30px;">
         <div class="text-center">
-            <a  href="{{url('/image' , $image->id)}}">
-                <img class="img-thumbnail" alt="" src="http://localhost/IMGY/public/{{$image->url}}" width="40%" height="60%" />
-            </a>
+            <img onclick="image_modal(this)" id="{{$image->id}}" class="img-thumbnail" alt="" src="<?php echo URL::to('/'); ?>/{{$image->url}}" style="cursor: pointer;" width="40%" height="60%" />
         </div>
     </div>
-    @endforeach
+@endforeach

@@ -30,6 +30,8 @@ Route::get('delete/{id}' , 'UploadController@delete');
 
 Route::get('search', ['as' => 'search', 'uses' => 'HomeController@search']);
 
+Route::get('modal_content/{id}' , 'HomeController@modal_content');
+
 
 
 
