@@ -27,16 +27,17 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $followed_users_id = Follows::select('following_user_id')
-                                      ->where('user_id', Auth::user()->id)
+        $followed_users_id = Follows::where('user_id', Auth::user()->id)
                                       ->pluck('following_user_id');
-        if($followed_users_id->isEmpty()) $followed_users_id=0;
+        if($followed_users_id->isEmpty()) $followed_users_id = array();
         $images = Image::whereIn('user_id', $followed_users_id)
                          ->orwhere('user_id', Auth::user()->id)
                          ->orderBy('created_at','desc')
                          ->paginate(4);
-
-        if($request->ajax()) {
+        $images_count= Image::whereIn('user_id', $followed_users_id)
+                       ->orwhere('user_id', Auth::user()->id)
+                       ->count();
+        if($request->ajax() and $images_count>4) {
             return [
                 'images' => view('infinite_scroll.infinite_scroll')->with(compact('images'))->render(),
                 'next_page' => $images->nextPageUrl()
