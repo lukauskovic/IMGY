@@ -31,7 +31,7 @@
                     <img class="img-thumbnail" id="imagePreview" style="max-height: 100vh"/>
                 </div>
                 <div class="col-md-4">
-                    <h3 id="user_fullname"></h3>
+                   <a id="user_link"><h3 id="user_fullname"></h3></a>
                     <p id="description"></p>
                     <h4>Tags: </h4>
                     <ul id="tags">
