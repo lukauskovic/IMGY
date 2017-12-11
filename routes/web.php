@@ -32,6 +32,8 @@ Route::get('search', ['as' => 'search', 'uses' => 'HomeController@search']);
 
 Route::get('modal_content/{id}' , 'HomeController@modal_content');
 
+Route::get('follow_handler/{id}' , 'UsersController@follow_handler');
+
 
 
 
