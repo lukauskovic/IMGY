@@ -74,20 +74,13 @@ class HomeController extends Controller
                             ->orderBy('firstname')
                             ->paginate(5);
 
-            /*$tags = Tag::where('name','like','%',$search.'%');*/
+            $tags = Tag::where('name','like','%'.$search.'%')
+                        ->pluck('id');
+            if(!$tags->isEmpty()) $images = Tag::find($tags)->images()->get();
+            else $images = array();
 
-
-
-            function emptyObj($users) {
-            foreach ($users as $k) {
-                return false;
-            }
-            return true;
-            }
-
-            $empty = emptyObj($users);            
  
-    return view('search')->withUsers($users)->withEmpty($empty);
+    return view('search')->withUsers($users)->withImages($images);
     }
 
 

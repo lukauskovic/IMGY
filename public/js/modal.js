@@ -11,7 +11,10 @@ function image_modal(image) {
         description.innerHTML = data.image_description;
         for (var index = 0; index < data.image_tags.length; ++index) {
             var tag = document.createElement("li");
-            tag.innerHTML = data.image_tags[index];
+            var tag_link = document.createElement("a");
+            tag.appendChild(tag_link);
+            tag_link.setAttribute("href", "/IMGY/public/search?search=" + data.image_tags[index]);
+            tag_link.innerHTML = data.image_tags[index];
             user_link.setAttribute("href", "/IMGY/public/profile/" + data.image_user_id );
             tags.appendChild(tag);
         }
