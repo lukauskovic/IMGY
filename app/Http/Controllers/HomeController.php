@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Nice;
 use App\Image;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -53,15 +54,23 @@ class HomeController extends Controller
         $tags = Image::find($img->id)->tags()->get();
         $tag_names = array();
         $user_id = $user->id;
+        $nices = Nice::where('image_id', $modal_image_id)
+                        ->count();
+        $nice_exists= Nice::where('image_id', $modal_image_id)
+            ->where('user_id', Auth::user()->id)
+            ->exists();
         foreach ($tags as $tag){
             array_push($tag_names, $tag->name);
         }
         $user_fullname = $user->firstname .' '. $user->lastname;
         return [
+            'image_id' => $img->id,
             'user_fullname' => $user_fullname,
             'image_description' => $img->description,
             'image_tags' => $tag_names,
-            'image_user_id' => $user_id
+            'image_user_id' => $user_id,
+            'nices' => $nices,
+            'nice_exists' => $nice_exists
         ];
     }
 
@@ -81,6 +90,30 @@ class HomeController extends Controller
 
  
     return view('search')->withUsers($users)->withImages($images);
+    }
+
+    public function nice($image_id){
+        $nice_exists= Nice::where('image_id', $image_id)
+            ->where('user_id', Auth::user()->id)
+            ->exists();
+        $nices = Nice::where('image_id', $image_id)
+            ->count();
+        if(!$nice_exists){
+            $nice = new Nice();
+            $nice->user_id = Auth::user()->id;
+            $nice->image_id = $image_id;
+            $nice->save();
+        }
+        else{
+            $existing_nice = Nice::where('user_id', Auth::user()->id)
+                ->where('image_id', $image_id)
+                ->first();
+            $existing_nice->delete();
+        }
+        return [
+            'nice_exists' => $nice_exists,
+            'nices' => $nices
+        ];
     }
 
 

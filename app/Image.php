@@ -11,6 +11,11 @@ class Image extends Model
         return $this->hasMany('App\Comment', 'image_id');
     }
 
+    public function likes()
+    {
+        return $this->hasMany('App\Comment', 'image_id');
+    }
+
     public function tags(){
         return $this->belongsToMany('App\Tag','images_tags','image_id');
     }

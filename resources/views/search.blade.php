@@ -36,25 +36,28 @@
 
 	</div>
 
-    <div class="modal fade bs-example-modal-lg" id="ImageModal" tabindex="-1" role="dialog" aria-labelledby="ImageModal">
-        <div class="modal-dialog modal-lg" role="document">
-            <div id="test" class="modal-content row">
-                <div class="col-md-8">
-                    <img class="img-thumbnail" id="imagePreview" style="max-height: 100vh"/>
-                </div>
-                <div class="col-md-4">
-                    <a id="user_link"><h3 id="user_fullname"></h3></a>
-                    <p id="description"></p>
-                    <h4>Tags: </h4>
-                    <ul id="tags">
+	<div class="modal fade bs-example-modal-lg" id="ImageModal" tabindex="-1" role="dialog" aria-labelledby="ImageModal">
+		<div class="modal-dialog modal-lg" role="document">
+			<div id="test" class="modal-content row">
+				<div class="col-md-8">
+					<img class="img-thumbnail" id="imagePreview" style="max-height: 100vh"/>
+				</div>
+				<div class="col-md-4">
+					<a id="user_link"><h3 id="user_fullname"></h3></a>
+					<p id="description"></p>
+					<h4>Tags: </h4>
+					<ul id="tags"></ul>
+					<div>
+						<button id="niceButton" onclick="nice(this)">Nice!</button>
+						<button>Comment</button>
+						<button>Share</button>
+					</div>
+				</div>
 
-                    </ul>
-                </div>
 
-
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
     <script src="<?php echo URL::to('/'); ?>/js/modal.js"></script>
 
 @endsection

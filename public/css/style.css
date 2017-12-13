@@ -24,3 +24,12 @@
     cursor: inherit;
     display: block;
 }
+
+.btn-primary-nice {
+    background: #0099cc;
+    color: #ffffff;
+}
+.btn-primary-notnice {
+    background: cadetblue;
+    color: #ffffff;
+}

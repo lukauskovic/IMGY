@@ -34,9 +34,12 @@
                    <a id="user_link"><h3 id="user_fullname"></h3></a>
                     <p id="description"></p>
                     <h4>Tags: </h4>
-                    <ul id="tags">
-
-                    </ul>
+                    <ul id="tags"></ul>
+                    <div>
+                        <button id="niceButton" onclick="nice(this)">Nice!</button>
+                        <button>Comment</button>
+                        <button>Share</button>
+                    </div>
                 </div>
 
 

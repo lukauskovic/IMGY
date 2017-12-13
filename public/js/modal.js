@@ -1,10 +1,12 @@
+var nice_button = document.getElementById("niceButton");
+var user_link = document.getElementById("user_link");
+var fullname = document.getElementById("user_fullname");
+var description = document.getElementById("description");
+var tags = document.getElementById("tags");
+var modal_image = document.getElementById("imagePreview");
+
 function image_modal(image) {
-    var modal_image = document.getElementById("imagePreview");
     modal_image.src = image.src;
-    var user_link = document.getElementById("user_link");
-    var fullname = document.getElementById("user_fullname");
-    var description = document.getElementById("description");
-    var tags = document.getElementById("tags");
     tags.innerHTML = "";
     $.get("/IMGY/public/modal_content/" + image.id, function(data){
         fullname.innerHTML = data.user_fullname;
@@ -17,8 +19,37 @@ function image_modal(image) {
             tag_link.innerHTML = data.image_tags[index];
             user_link.setAttribute("href", "/IMGY/public/profile/" + data.image_user_id );
             tags.appendChild(tag);
+
+            //nice button
+            nice_button.innerHTML = "Nice " + data.nices;
+            if(data.nice_exists) nice_button.setAttribute("class", "btn btn-primary-nice");
+            else nice_button.setAttribute("class", "btn btn-primary-notnice");
+            nice_button.setAttribute("id", image.id);
         }
     });
 
     $('#ImageModal').modal('show');
+}
+
+$('#ImageModal').on('hidden.bs.modal', function () {
+    nice_button.setAttribute("id", "niceButton");
+})
+
+function nice(niceButton) {
+    niceButton.disabled = true;
+    $.get("/IMGY/public/nice/" + niceButton.id , function (data) {
+        var nices = data.nices;
+        if(data.nice_exists){
+            niceButton.setAttribute("class", "btn btn-primary-notnice");
+            nices--;
+            niceButton.innerHTML = "Nice " + nices ;
+        }
+        else{
+            niceButton.setAttribute("class", "btn btn-primary-nice");
+            nices++;
+            niceButton.innerHTML = "Nice " + nices ;
+
+        }
+        niceButton.disabled = false;
+    });
 }

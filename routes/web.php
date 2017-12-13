@@ -34,6 +34,8 @@ Route::get('modal_content/{id}' , 'HomeController@modal_content');
 
 Route::get('follow_handler/{id}' , 'UsersController@follow_handler');
 
+Route::get('nice/{id}', 'HomeController@nice');
+
 
 
 
