@@ -1,5 +1,4 @@
 composer.lock
-.env
 .idea/*
 package-lock.json
 vendor/*
