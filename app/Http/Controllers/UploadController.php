@@ -86,7 +86,7 @@ class UploadController extends Controller
         unlink($img->url);
          $img->delete();
        }
-       return Redirect('/home');
+       return redirect()->back();
     }
 
 }

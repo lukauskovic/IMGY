@@ -4,3 +4,5 @@ composer.lock
 package-lock.json
 vendor/*
 public/uploads/
+public/welcome_images/*
+database/migrations/*

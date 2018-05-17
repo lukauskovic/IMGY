@@ -171,15 +171,15 @@
 
                 <div class="container">
                     <div id="carousel">
-                        <figure><img src= "<?php echo URL::to('/'); ?>/welcome_images/beach.jpg" alt="" width="100%" height="125px" ></figure>
-                        <figure><img src="<?php echo URL::to('/'); ?>/welcome_images/chill.jpg" alt="" width="100%" height="125px"></figure>
-                        <figure><img src="<?php echo URL::to('/'); ?>/welcome_images/city.jpg" alt="" width="100%" height="125px"></figure>
-                        <figure><img src="<?php echo URL::to('/'); ?>/welcome_images/guitar.jpg" alt="" width="100%" height="125px"></figure>
-                        <figure><img src="<?php echo URL::to('/'); ?>/welcome_images/mountains.jpg" alt="" width="100%" height="125px"></figure>
-                        <figure><img src="<?php echo URL::to('/'); ?>/welcome_images/unbeatable.jpg" alt="" width="100%" height="125px"></figure>
-                        <figure><img src="<?php echo URL::to('/'); ?>/welcome_images/love.jpg" alt="" width="100%" height="125px"></figure>
-                        <figure><img src="<?php echo URL::to('/'); ?>/welcome_images/road.jpg" alt="" width="100%" height="125px"></figure>
-                        <figure><img src="<?php echo URL::to('/'); ?>/welcome_images/woods.jpg" alt="" width="100%" height="125px"></figure>
+                        <figure><img src= "welcome_images/beach.jpg" alt="" width="100%" height="125px" ></figure>
+                        <figure><img src="welcome_images/chill.jpg" alt="" width="100%" height="125px"></figure>
+                        <figure><img src="welcome_images/city.jpg" alt="" width="100%" height="125px"></figure>
+                        <figure><img src="welcome_images/guitar.jpg" alt="" width="100%" height="125px"></figure>
+                        <figure><img src="welcome_images/mountains.jpg" alt="" width="100%" height="125px"></figure>
+                        <figure><img src="welcome_images/unbeatable.jpg" alt="" width="100%" height="125px"></figure>
+                        <figure><img src="welcome_images/love.jpg" alt="" width="100%" height="125px"></figure>
+                        <figure><img src="welcome_images/road.jpg" alt="" width="100%" height="125px"></figure>
+                        <figure><img src="welcome_images/woods.jpg" alt="" width="100%" height="125px"></figure>
                     </div>
                 </div>
 
