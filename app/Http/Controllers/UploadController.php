@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Cloudinary;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -19,7 +20,15 @@ class UploadController extends Controller
         $tags =  Tag::all();
         return view('upload')->withTags($tags);
     }
+    public function configCloudinary(){
+        Cloudinary::config(array(
+            "cloud_name" => "djul74lwz",
+            "api_key" => "999472721123925",
+            "api_secret" => "fj56U3FNImsVM3SCt0TvgpjIf6s"
+        ));
+    }
     public function upload() {
+        $this->configCloudinary();
         // getting all of the post data
         $file = array('image' => Input::file('image'));
         // setting up rules
@@ -36,11 +45,16 @@ class UploadController extends Controller
                 $description = $_POST['description'];
                 $destinationPath = 'uploads'; // upload path
                 $extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
-                $fileName = rand(11111,99999).'.'.$extension; // renaming image
-                Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
+                $fileName = rand(11111,99999); // image name
+                $cloudinaryId = "imgy/" . $fileName;
+                Cloudinary\Uploader::upload(Input::file('image'), array(
+                    "public_id" => $cloudinaryId,
+                    "format" => $extension
+                    ));
                 //DB
                 $img = new Image();
-                $img->url = 'uploads/'.$fileName;
+                $img->url = cloudinary_url($cloudinaryId);
+                $img->cloudinary_id = $cloudinaryId;
                 $img->user_id = Auth::user()->id;
                 $img->description = $description;
                 $img->save();
@@ -79,11 +93,11 @@ class UploadController extends Controller
     }
 
     public function delete($id){
-
+       $this->configCloudinary();
        $img = Image::find($id);
        if($img->user_id == Auth::user()->id)
        {
-        unlink($img->url);
+         Cloudinary\Uploader::destroy($img->cloudinary_id);
          $img->delete();
        }
        return redirect()->back();

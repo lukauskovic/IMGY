@@ -17,6 +17,7 @@ class CreateImagesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('url');
+            $table->string('cloudinary_id');
             $table->string('description');
             $table->timestamps();
         });
