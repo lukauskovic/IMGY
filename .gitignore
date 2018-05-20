@@ -5,3 +5,5 @@ vendor/*
 public/uploads/
 public/welcome_images/*
 database/migrations/*
+.env
+node_modules/*
